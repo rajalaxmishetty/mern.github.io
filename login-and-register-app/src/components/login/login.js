@@ -3,7 +3,7 @@ import "./login.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
 
-const Login = ({ updateUser}) => {
+const Login = ({ setLoginUser}) => {
 
     const history = useHistory()
 
@@ -24,7 +24,7 @@ const Login = ({ updateUser}) => {
         axios.post("http://localhost:9002/login", user)
         .then(res => {
             alert(res.data.message)
-            updateUser(res.data.user)
+            setLoginUser(res.data.user)
             history.push("/")
         })
     }
